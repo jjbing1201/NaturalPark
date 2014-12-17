@@ -29,7 +29,9 @@ class LoginViewController: UIViewController {
     
     //MARK: - 实例动作
     @IBAction func enSure(sender: UIButton) -> Void {
+        
         var alert: UIAlertView
+        
         // 第一部分： 确认是否存在用户输入
         if userName.text == "" && passWord.text == "" {
             alert = AlertOutSide().AllEmpty()
@@ -78,6 +80,9 @@ class LoginViewController: UIViewController {
             alert = AlertOutSide().RequestLoginFailed()
             alert.show()
         }
+        
+        // transport
+        self.performSegueWithIdentifier("tranformToMain", sender: sender)
         
         return
     }

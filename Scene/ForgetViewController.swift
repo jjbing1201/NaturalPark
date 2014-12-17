@@ -34,8 +34,6 @@ class ForgetViewController: UIViewController {
     }
     
     func reply() {
-        // 初始化loginviewcontroller
-//        let loginviewcontroller = LoginViewController()
         // 转场
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
