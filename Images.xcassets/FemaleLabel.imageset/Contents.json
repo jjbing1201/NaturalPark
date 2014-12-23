@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "humanBackImage@1x.png"
+      "filename" : "female@1x_NA.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "humanBackImage@2x.png"
+      "filename" : "female@2x_NA.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "humanBackImage@3x.png"
+      "filename" : "female@3x_NA.png"
     }
   ],
   "info" : {
