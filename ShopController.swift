@@ -24,7 +24,7 @@ class ShopController: UIViewController {
         self.navigationItem.leftBarButtonItem = replyItem;
         
         // 下一级展示页面
-        let fturl = NSURL(string: "http://www.baidu.com")
+        let fturl = NSURL(string: Global().SHOP_URL)
         Shopwv?.loadRequest(NSURLRequest(URL: fturl!))
         
     }

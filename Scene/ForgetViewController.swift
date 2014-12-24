@@ -23,7 +23,7 @@ class ForgetViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = replyItem;
 
         // 下一级展示页面
-        let fturl = NSURL(string: "http://www.naturalpark.cn")
+        let fturl = NSURL(string: Global().FORGET_URL)
         ft?.loadRequest(NSURLRequest(URL: fturl!))
 
     }

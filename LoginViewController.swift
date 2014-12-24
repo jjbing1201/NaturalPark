@@ -56,9 +56,22 @@ class LoginViewController: UIViewController {
         }
         
         // 第二部分：直接进行网络连接请求 用户登录
-        var InternetConnect:Bool?
-        InternetConnect = true
-        if (InternetConnect == true) {
+        // 上传解析
+        var _logindata:NSDictionary = ["user_name": userName.text, "user_pass":passWord.text]
+        let logindata:NSString = JsonEasyControl().JsonToStringZero(_logindata)
+        let tranform_data = TranformData()
+        let alldata = tranform_data.getThreePart(1390013900, dataPass: logindata, interfacePass: Global().INTERFACE_TODOUSER) as String
+        let auth = tranform_data.getThreeAuth(alldata)
+        let newdata = tranform_data.getNewThreePart(1390013900, dataPass: logindata, AuthPass: auth)
+        
+        let loginurl = "http://\(Global().SERVER_IP):\(Global().SERVER_PORT)/\(Global().INTERFACE_TODOUSER)"
+        let rlogindata = tranform_data.giveSecurity(newdata)
+        
+        // 返回解析
+        let returnstring = EasyRequestPost(loginurl, rlogindata)
+        let get_return = JsonEasyControl().StringToJson(returnstring)
+        let return_code = get_return["code"] as Int
+        if (return_code == 0) {
             // 用户名密码替换或者保存
             var localuser_op = LOCALUSER_OPERATOR()
             var (select_sure:Bool, name:String, pass:String) = localuser_op.selectLocalUser(storeContext)
@@ -76,9 +89,9 @@ class LoginViewController: UIViewController {
                 }
             }
         } else {
-            // 告知用户网路请求失败
             alert = AlertOutSide().RequestLoginFailed()
             alert.show()
+            return
         }
         
         // transport

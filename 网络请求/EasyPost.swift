@@ -8,7 +8,7 @@
 
 import UIKit
 
-func EasyRequestPost(urlString : String , postString : String) -> String{
+func EasyRequestPost(urlString : String , postString : String) -> String {
     
     // 初始化参数和请求内容
     var error : NSError?
