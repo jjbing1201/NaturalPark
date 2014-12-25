@@ -76,13 +76,13 @@ class LoginViewController: UIViewController {
             var localuser_op = LOCALUSER_OPERATOR()
             var (select_sure:Bool, name:String, pass:String) = localuser_op.selectLocalUser(storeContext)
             if (select_sure == true) {
-                var update_sure:Bool = localuser_op.updateLocalUser(storeContext, name: userName.text, pass: passWord.text)
+                var update_sure:Bool = localuser_op.updateLocalUser(storeContext, name: userName.text, pass: passWord.text, nickname: "None")
                 if (update_sure == false) {
                     alert = AlertOutSide().RequestUpdateFailed()
                     alert.show()
                 }
             } else {
-                var insert_sure:Bool = localuser_op.insertLocalUser(storeContext, name: userName.text, pass: passWord.text)
+                var insert_sure:Bool = localuser_op.insertLocalUser(storeContext, name: userName.text, pass: passWord.text, nickname: "None")
                 if (insert_sure == false) {
                     alert = AlertOutSide().RequestInsertFailed()
                     alert.show()

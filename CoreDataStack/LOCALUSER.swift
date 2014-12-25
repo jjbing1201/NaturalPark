@@ -3,17 +3,18 @@
 //  NaturalPark
 //
 //  Created by Computer on 14/12/12.
-//  Copyright (c) 2014年 Computer. All rights reserved.
+//  Copyright (c) 2014 Computer. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
+/* 对于coredata -> LOCALUSER 定义 */
 class LOCALUSER: NSManagedObject {
 
     @NSManaged var name: String
     @NSManaged var pass: String
-
+    @NSManaged var nickname: String
 }
 
 /* 对于LOCALUSER的操作封装 */
@@ -46,13 +47,14 @@ class LOCALUSER_OPERATOR {
     }
 
     // 新增本地用户信息
-    func insertLocalUser(ViewCoreContext: NSManagedObjectContext, name: String, pass: String) -> Bool {
+    func insertLocalUser(ViewCoreContext: NSManagedObjectContext, name: String, pass: String, nickname: String) -> Bool {
         var error:NSError?
         
         let entity_of_user = NSEntityDescription.entityForName("LOCALUSER", inManagedObjectContext: ViewCoreContext)
         let _local_user = LOCALUSER(entity: entity_of_user!, insertIntoManagedObjectContext: ViewCoreContext)
         _local_user.name = name
         _local_user.pass = pass
+        _local_user.nickname = nickname
         
         if !ViewCoreContext.save(&error) {
             println("[无法初始化本地用户信息] \(error?.description)")
@@ -62,7 +64,7 @@ class LOCALUSER_OPERATOR {
     }
     
     // 修改本地用户信息
-    func updateLocalUser(ViewCoreContext: NSManagedObjectContext, name: String, pass: String) -> Bool {
+    func updateLocalUser(ViewCoreContext: NSManagedObjectContext, name: String, pass: String, nickname: String) -> Bool {
         var error:NSError?
         
         let fetchResult = NSFetchRequest(entityName: "LOCALUSER")
@@ -75,6 +77,7 @@ class LOCALUSER_OPERATOR {
                 var localuser = localuserstore[0] as LOCALUSER
                 localuser.name = name
                 localuser.pass = pass
+                localuser.nickname = nickname
                 
                 if !ViewCoreContext.save(&error) {
                     println("[无法更新本地用户信息] \(error?.description)")
@@ -87,4 +90,25 @@ class LOCALUSER_OPERATOR {
         }
         return false
     }
+    
+    /* 查询本地用户信息 */
+    func selectLocalUserName(ViewCoreContext: NSManagedObjectContext) -> (re_sure: Bool, name: String) {
+        var error:NSError?
+        let fetchResult = NSFetchRequest(entityName: "LOCALUSER")
+        
+        let fetchedResults = ViewCoreContext.executeFetchRequest(fetchResult, error: &error) as [LOCALUSER]?
+        if let result = fetchedResults {
+            localuserstore = result
+            
+            if localuserstore.count > 0 {
+                let eachuser:LOCALUSER = localuserstore[0] as LOCALUSER
+                
+                // 填写默认的内容
+                return (true, eachuser.nickname)
+            }
+            return (false, "None")
+        }
+        return (false, "None")
+    }
+
 }

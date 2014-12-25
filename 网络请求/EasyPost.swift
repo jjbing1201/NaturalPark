@@ -41,3 +41,5 @@ func EasyRequestPost(urlString : String , postString : String) -> String {
     
     return strRet!
 }
+
+

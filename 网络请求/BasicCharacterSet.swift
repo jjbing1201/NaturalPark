@@ -47,6 +47,17 @@ class Base64EasyControl {
     }
 }
 
+class UrlEasyControl {
+    
+    func urlEncode(encodingString: String) -> (String) {
+        return encodingString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+    }
+    
+    func urlDecode(decodingString: String) -> (String) {
+        return decodingString.stringByRemovingPercentEncoding!
+    }
+}
+
 // MARK: - 字符类型转换
 class CharasetChange {
     /* 1. NSString to NSData */
