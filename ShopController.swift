@@ -10,11 +10,13 @@ import UIKit
 
 class ShopController: UIViewController {
     
+    @IBOutlet weak var Chry: UIActivityIndicatorView!
     @IBOutlet weak var Shopwv: UIWebView!
     
     // MARK: - ShopController全局内容
     override func viewDidLoad() {
         super.viewDidLoad()
+        var ChryProperty = ActivityOutside()
         // Do any additional setup after loading the view, typically from a nib.
         
         // 设置导航栏标题
@@ -24,9 +26,14 @@ class ShopController: UIViewController {
         self.navigationItem.leftBarButtonItem = replyItem;
         
         // 下一级展示页面
+        setWebView()
+        ChryProperty.setChryCenter(Chry, DirectView: self)
+        ChryProperty.startChry(Chry)
+        
         let fturl = NSURL(string: Global().SHOP_URL)
         Shopwv?.loadRequest(NSURLRequest(URL: fturl!))
         
+        ChryProperty.stopChry(Chry)
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,9 +41,13 @@ class ShopController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setWebView() -> Void {
+        Shopwv.scrollView.scrollsToTop = true
+        Shopwv.scrollView.bounces = false
+    }
+    
     func replyFrom() {
         // 转场
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }

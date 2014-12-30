@@ -11,10 +11,12 @@ import UIKit
 class AdvertismentController: UIViewController {
     
     @IBOutlet weak var getAdvertisment: UIWebView!
+    @IBOutlet weak var A_Chry: UIActivityIndicatorView!
     
     // MARK: - AdvertismentController全局内容
     override func viewDidLoad() {
         super.viewDidLoad()
+        var ChryProperty = ActivityOutside()
         // Do any additional setup after loading the view, typically from a nib.
         
         // 设置导航栏标题
@@ -24,14 +26,25 @@ class AdvertismentController: UIViewController {
         self.navigationItem.leftBarButtonItem = replyItem;
         
         // 下一级展示页面
+        setWebView()
+        
+        ChryProperty.setChryCenter(A_Chry, DirectView: self)
+        ChryProperty.startChry(A_Chry)
+        
         let fturl = NSURL(string: Global().ADVERTISMENT_URL)
         getAdvertisment?.loadRequest(NSURLRequest(URL: fturl!))
         
+        ChryProperty.stopChry(A_Chry)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setWebView() -> Void {
+        getAdvertisment.scrollView.scrollsToTop = true
+        getAdvertisment.scrollView.bounces = false
     }
     
     func replyFrom() {

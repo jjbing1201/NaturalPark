@@ -40,11 +40,11 @@ class MainViewController : UIViewController, UITableViewDataSource, UITableViewD
     
     /* 固定1部分内容 */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 5
     }
     /* 固定1部分中含有5行内容 */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userinform.count - 1
+        return 1
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -53,19 +53,87 @@ class MainViewController : UIViewController, UITableViewDataSource, UITableViewD
         return label
     }
     
+    /* 设置多section之间的间隙大小 */
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1.1
+    }
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.1
+    }
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
     /* 固定5部分内容的样式，遵循模拟样式 */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "UserMainCell")
-        
-        let eachRow = self.userinform[indexPath.row] as NSDictionary
-        cell.textLabel?.text = eachRow["title"] as? String
-        cell.detailTextLabel?.text = eachRow["context"] as? String
-        cell.imageView?.image = UIImage(named: "female.png")
-        return cell
+        // 可用积分
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "UserMainCell")
+            let eachRow = self.userinform[indexPath.section] as NSDictionary
+            
+            cell.textLabel?.text = eachRow["title"] as? String
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.textLabel?.font = UIFont(name: "Arial", size: 20.0)
+            cell.detailTextLabel?.text = eachRow["context"] as? String
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size: 30.0)
+            return cell
+        }
+        // 用户等级
+        else if (indexPath.section == 1 && indexPath.row == 0) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "UserMainCell")
+            let eachRow = self.userinform[indexPath.section] as NSDictionary
+            
+            cell.textLabel?.text = eachRow["title"] as? String
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.textLabel?.font = UIFont(name: "Arial", size: 20.0)
+            cell.detailTextLabel?.text = eachRow["context"] as? String
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size: 30.0)
+            return cell
+        }
+        // 肤质信息
+        else if (indexPath.section == 2 && indexPath.row == 0) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "UserMainCell")
+            let eachRow = self.userinform[indexPath.section] as NSDictionary
+            
+            cell.textLabel?.text = eachRow["title"] as? String
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.textLabel?.font = UIFont(name: "Arial", size: 20.0)
+            cell.detailTextLabel?.text = eachRow["context"] as? String
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size: 30.0)
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            return cell
+        }
+        // 消息提醒
+        else if (indexPath.section == 3 && indexPath.row == 0) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "UserMainCell")
+            let eachRow = self.userinform[indexPath.section] as NSDictionary
+            
+            cell.textLabel?.text = eachRow["title"] as? String
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.textLabel?.font = UIFont(name: "Arial", size: 20.0)
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            return cell
+        }
+        // 购买次数
+        else if (indexPath.section == 4 && indexPath.row == 0) {
+            let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "UserMainCell")
+            let eachRow = self.userinform[indexPath.section] as NSDictionary
+            
+            cell.textLabel?.text = eachRow["title"] as? String
+            cell.textLabel?.textColor = UIColor.grayColor()
+            cell.textLabel?.font = UIFont(name: "Arial", size: 20.0)
+            cell.detailTextLabel?.text = eachRow["context"] as? String
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size: 30.0)
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            return cell
+        }
+        return UITableViewCell()
     }
     
     /* 集中加载 */
-    func LoadAnything() -> Void {'
+    func LoadAnything() -> Void {
         self.storeContext = globalstack.context
     }
     
@@ -132,10 +200,10 @@ class MainViewController : UIViewController, UITableViewDataSource, UITableViewD
         let usernickname = userinform[5]
 
         if (usernickname["context"] != "None") {
-            UserNickName.text = usernickname["context"]
+            self.navigationItem.title = usernickname["context"]
         } else {
-            UserNickName.text = "请设置用户昵称"
+            self.navigationItem.title = "请设置用户昵称"
         }
     }
-}
 
+}

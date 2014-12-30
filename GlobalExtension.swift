@@ -13,9 +13,9 @@ struct Global {
     let PASSWORD_MAX_SIZE = 20  // 最长用户密码限制
     
     /* 基础调用url */
-    let FORGET_URL          = "http://www.naturalpark.cn"        // 忘记密码页面跳转web链接
-    let ADVERTISMENT_URL    = "http://www.baidu.com"             // 广告推送页面
-    let SHOP_URL            = "http://www.baidu.com"             // 商品/商店页面
+    let FORGET_URL          = "http://www.naturalpark.cn"            // 忘记密码页面跳转web链接
+    let ADVERTISMENT_URL    = "http://222.73.243.9/wordpress/?cat=2" // 广告推送页面
+    let SHOP_URL            = "http://222.73.243.9/wordpress/?cat=3" // 商品/商店页面
     
     /* 服务端地址和内容 */
     let SERVER_IP           = "118.194.49.4"

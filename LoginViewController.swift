@@ -111,6 +111,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+//        enSurebuttonLocation()
+        
         // 默认填写内容, 但是如果点击了忘记密码以后，会删除所有用户名和密码的内容
         DefaultInputUsernameAndPasswordIfNeed()
     }
@@ -133,6 +135,15 @@ class LoginViewController: UIViewController {
     
     //MARK: - 转场
     @IBAction func backfromForget(segue: UIStoryboard) {
-        
+
     }
+    
+//    func enSurebuttonLocation() -> Void {
+//        enSureButton.center = self.view.center
+//        
+//        var buttoncolor = UIColor(red: 102, green: 204, blue: 255, alpha: 1)
+//        enSureButton.backgroundColor = buttoncolor
+//    }
+    
+    
 }
