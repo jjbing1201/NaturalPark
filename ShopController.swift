@@ -20,7 +20,7 @@ class ShopController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // 设置导航栏标题
-        self.title="返回";
+        self.title="NaturalPark";
         let replyItem=UIBarButtonItem(title:"返回", style:.Plain, target:self, action:"replyFrom");
         //  添加到到导航栏上
         self.navigationItem.leftBarButtonItem = replyItem;
