@@ -66,4 +66,15 @@ class AlertOutSide {
         
         return alertempty
     }
+    
+    /* 用户提交意见和内容 */
+    func RequestUploadPage() -> (UIAlertView) {
+        var alertempty = UIAlertView()
+        alertempty.title = "用户提交内容"
+        alertempty.message = "提交已成功，感谢您的反馈"
+        alertempty.addButtonWithTitle("确定")
+        
+        return alertempty
+    }
+
 }

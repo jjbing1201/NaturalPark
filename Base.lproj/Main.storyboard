@@ -113,20 +113,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4d2-bU-2O1">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvU-zB-PLo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4d2-bU-2O1">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="tvU-zB-PLo" secondAttribute="bottom" id="Cp1-8T-0Ik"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tvU-zB-PLo" secondAttribute="trailing" constant="-18" id="QYc-MU-zHw"/>
                             <constraint firstItem="tvU-zB-PLo" firstAttribute="leading" secondItem="x2n-dJ-bec" secondAttribute="leadingMargin" constant="-18" id="iqw-GQ-4Hj"/>
-                            <constraint firstItem="tvU-zB-PLo" firstAttribute="top" secondItem="x2n-dJ-bec" secondAttribute="top" constant="-155" id="sZq-va-oAx"/>
+                            <constraint firstItem="tvU-zB-PLo" firstAttribute="top" secondItem="x2n-dJ-bec" secondAttribute="top" constant="-20" id="sZq-va-oAx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2fR-2S-7M2"/>
@@ -165,7 +165,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xYA-Gy-aD0" firstAttribute="top" secondItem="nkE-Oy-mvo" secondAttribute="top" constant="-155" id="8Q8-np-XMr"/>
+                            <constraint firstItem="xYA-Gy-aD0" firstAttribute="top" secondItem="nkE-Oy-mvo" secondAttribute="top" constant="-20" id="8Q8-np-XMr"/>
                             <constraint firstAttribute="bottom" secondItem="xYA-Gy-aD0" secondAttribute="bottom" id="VQD-Js-dfg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xYA-Gy-aD0" secondAttribute="trailing" constant="-18" id="acG-gN-stq"/>
                             <constraint firstItem="xYA-Gy-aD0" firstAttribute="leading" secondItem="nkE-Oy-mvo" secondAttribute="leadingMargin" constant="-18" id="zqS-4v-Gfj"/>
@@ -392,6 +392,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHo-st-OOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3047" y="-217"/>
+        </scene>
+        <!--Second Template View Controller-->
+        <scene sceneID="BtF-wQ-fbT">
+            <objects>
+                <viewController storyboardIdentifier="Second" id="jbm-ky-j5y" customClass="SecondTemplateViewController" customModule="NaturalPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XsG-ry-3xa"/>
+                        <viewControllerLayoutGuide type="bottom" id="LhS-aO-pdK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J6h-5a-Okx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blj-b8-KMc">
+                                <rect key="frame" x="-150" y="484" width="900" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="提交">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="UploadReturn:" destination="jbm-ky-j5y" eventType="touchUpInside" id="TRf-i2-d1a"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="请输入您的内容" translatesAutoresizingMaskIntoConstraints="NO" id="neT-tq-lcS">
+                                <rect key="frame" x="180" y="155" width="240" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="blj-b8-KMc" firstAttribute="top" secondItem="neT-tq-lcS" secondAttribute="bottom" constant="20" id="3ab-Qo-n5r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="blj-b8-KMc" secondAttribute="trailing" constant="-16" id="43i-GC-BP8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="neT-tq-lcS" secondAttribute="trailing" constant="-13" id="G3D-zi-F2h"/>
+                            <constraint firstItem="neT-tq-lcS" firstAttribute="leading" secondItem="J6h-5a-Okx" secondAttribute="leadingMargin" constant="-13" id="GQq-bf-xqF"/>
+                            <constraint firstItem="neT-tq-lcS" firstAttribute="top" secondItem="J6h-5a-Okx" secondAttribute="top" constant="80" id="pjs-JU-ghK"/>
+                            <constraint firstItem="blj-b8-KMc" firstAttribute="leading" secondItem="J6h-5a-Okx" secondAttribute="leadingMargin" constant="-16" id="xbn-UU-Nhz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="koO-ih-ALv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="2bu-IY-Cqz">
+                            <connections>
+                                <action selector="LeftButtonReturn:" destination="jbm-ky-j5y" id="qkr-36-RCR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="TextViewField" destination="neT-tq-lcS" id="EjF-O7-p5P"/>
+                        <outlet property="leftbarbutton" destination="2bu-IY-Cqz" id="0kO-xq-CcW"/>
+                        <outlet property="upload" destination="blj-b8-KMc" id="iXy-t9-Kny"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqF-vc-LuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4858" y="485"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RM1-hr-inq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="STO-uo-hj4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="afq-aX-nmR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jbm-ky-j5y" kind="relationship" relationship="rootViewController" id="7xU-yZ-0aS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-ds-hOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4046" y="485"/>
         </scene>
     </scenes>
     <resources>
