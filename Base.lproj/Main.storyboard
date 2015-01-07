@@ -40,7 +40,7 @@
                             <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oD3-3P-3sI">
                                 <rect key="frame" x="257" y="285" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="确认" backgroundImage="buttonback.png">
+                                <state key="normal" title="确认" backgroundImage="bt3.png">
                                     <color key="titleColor" red="0.98403916570000005" green="0.99365355219999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.38148034501569095" green="0.95835306186868685" blue="0.95835306186868685" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -473,7 +473,7 @@
         <image name="FemaleLabel" width="58" height="58"/>
         <image name="MaleLabel" width="58" height="58"/>
         <image name="UserAvatar" width="80" height="80"/>
-        <image name="buttonback.png" width="350" height="30"/>
+        <image name="bt3.png" width="350" height="40"/>
         <image name="shufflingMain" width="320" height="180"/>
     </resources>
 </document>
