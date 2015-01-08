@@ -43,33 +43,24 @@ func EasyRequestPost(urlString : String , postString : String) -> String {
 }
 
 func EasyRequestGet(urlString : String , postString : String) -> String {
-    
+
     // 初始化参数和请求内容
+    var strRet : NSString? = nil
     var error : NSError?
     var response : NSURLResponse?
-    var strRet : NSString? = nil
-    var request: NSMutableURLRequest? = NSMutableURLRequest()
-    
+    var ensure_url = "\(urlString)?\(postString)"
+
     // 开启网络请求
     NetworkActive().StartActiveIndicator()
     
-    //字符串转换NSData
-    var postData = postString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion : true) as NSData?
-    
-    // 设置URL
-    var url = NSURL(string: urlString)
-    
-    // 设置HTTP方法
-    request!.URL = url!
-    request!.HTTPMethod = "GET"
-    request!.HTTPBody = postData!;
-    //设置参数
-    //request!.setValue("text/html", forHTTPHeaderField : "Content-Type")
-    
-    var returnData = NSURLConnection.sendSynchronousRequest(request!, returningResponse : &response, error: &error) as NSData?
+    // 设置URL 和 http 方法
+    var url:NSURL = NSURL(string: ensure_url)!
+    let data_request: NSURLRequest = NSURLRequest(URL: url)
+
+    var returnData = NSURLConnection.sendSynchronousRequest(data_request, returningResponse: &response, error: &error) as NSData?
     
     strRet = NSString(data: returnData!, encoding:NSUTF8StringEncoding)
-    
+
     // 关闭网络请求
     NetworkActive().StopActiveIndicator()
     

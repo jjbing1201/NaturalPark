@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
         let rlogindata = tranform_data.giveSecurity(newdata)
         
         // 返回解析
-        let returnstring = EasyRequestPost(loginurl, rlogindata)
+        let returnstring = EasyRequestGet(loginurl, rlogindata)
         let get_return = JsonEasyControl().StringToJson(returnstring)
         let return_code = get_return["code"] as Int
         if (return_code == 0) {

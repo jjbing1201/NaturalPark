@@ -252,7 +252,7 @@ class MainViewController : UIViewController, UITableViewDataSource, UITableViewD
         let rlogindata = tranform_data.giveSecurity(newdata)
         
         // 返回解析
-        let returnstring = EasyRequestPost(loginurl, rlogindata)
+        let returnstring = EasyRequestGet(loginurl, rlogindata)
         let get_return = JsonEasyControl().StringToJson(returnstring)
         let firstlayer_code = get_return["code"] as Int
         var _point:Dictionary<String,String>;
